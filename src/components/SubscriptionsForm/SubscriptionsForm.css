@@ -4,6 +4,9 @@ h3 {
   padding-bottom: 10px;
   border-bottom: solid 1px #ccc;
 }
+label {
+  font-size: 16px;
+}
 .form-constraint {
   max-width: 600px;
 }

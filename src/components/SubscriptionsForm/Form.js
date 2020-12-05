@@ -112,7 +112,7 @@ export default function SubscriptionsForm(
               onBlur={handleBlur}
               />
               {/* errors will only be shown if it has been touched.*/}
-              {touched.ccCVV && errors.ccCVV}
+              <span className="text-danger error-text">{touched.ccCVV && errors.ccCVV}</span>
             </div>
           </div>
         </div>
@@ -134,7 +134,7 @@ export default function SubscriptionsForm(
                 onBlur={handleBlur}
               />
               {/* errors will only be shown if it has been touched.*/}
-              {touched.ccFirstName && errors.ccFirstName}
+              <span className="text-danger error-text">{touched.ccFirstName && errors.ccFirstName}</span>
             </div>
             <div className="col-sm-6">
               <label htmlFor="ccLastName">Last Name</label>
@@ -149,7 +149,7 @@ export default function SubscriptionsForm(
                 onBlur={handleBlur}
               />
               {/* errors will only be shown if it has been touched.*/}
-              {touched.ccLastName && errors.ccLastName}
+              <span className="text-danger error-text">{touched.ccLastName && errors.ccLastName}</span>
             </div>
           </div>
         </div>
@@ -169,7 +169,7 @@ export default function SubscriptionsForm(
                 onBlur={handleBlur}
               />
               {/* errors will only be shown if it has been touched.*/}
-              {touched.ccAddress && errors.ccAddress}
+              <span className="text-danger error-text">{touched.ccAddress && errors.ccAddress}</span>
             </div>
           </div>
         </div>
@@ -189,7 +189,7 @@ export default function SubscriptionsForm(
                 onBlur={handleBlur}
               />
               {/* errors will only be shown if it has been touched.*/}
-              {touched.ccCity && errors.ccCity}
+              <span className="text-danger error-text">{touched.ccCity && errors.ccCity}</span>
             </div>
             <div className="col-sm-3">
               <label htmlFor="ccState">State/Province</label>
@@ -204,7 +204,7 @@ export default function SubscriptionsForm(
                 onBlur={handleBlur}
               />
               {/* errors will only be shown if it has been touched.*/}
-              {touched.ccState && errors.ccState}
+              <span className="text-danger error-text">{touched.ccState && errors.ccState}</span>
             </div>
             <div className="col-sm-3">
               <label htmlFor="ccZip">Zip</label>
@@ -219,7 +219,7 @@ export default function SubscriptionsForm(
                 onBlur={handleBlur}
               />
               {/* errors will only be shown if it has been touched.*/}
-              {touched.ccZip && errors.ccZip}
+              <span className="text-danger error-text">{touched.ccZip && errors.ccZip}</span>
             </div>
           </div>
         </div>
@@ -239,7 +239,7 @@ export default function SubscriptionsForm(
                 onBlur={handleBlur}
               />
               {/* errors will only be shown if it has been touched.*/}
-              {touched.ccCountry && errors.ccCountry}
+              <span className="text-danger error-text">{touched.ccCountry && errors.ccCountry}</span>
             </div>
           </div>
         </div>
@@ -259,7 +259,7 @@ export default function SubscriptionsForm(
                 onBlur={handleBlur}
               />
               {/* errors will only be shown if it has been touched.*/}
-              {touched.ccEmail && errors.ccEmail}
+              <span className="text-danger error-text">{touched.ccEmail && errors.ccEmail}</span>
             </div>
           </div>
         </div>
