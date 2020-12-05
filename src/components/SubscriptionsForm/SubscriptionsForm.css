@@ -1,0 +1,14 @@
+h3 {
+  margin-top: 60px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: solid 1px #ccc;
+}
+.form-constraint {
+  max-width: 600px;
+}
+.error-text {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}

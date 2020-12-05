@@ -56,7 +56,7 @@
     <div id="subs-body">
       <div class="container">
         <div class="col-sm-12">
-          <iframe src="./build/index.html" style="width: 100%; min-height: 500px;" frameborder="0"></iframe>
+          <iframe id="form-holder" src="./build/index.html" style="width: 100%; min-height: 500px;" frameborder="0"></iframe>
         </div>
       </div>
     </div>
@@ -68,6 +68,19 @@
 
   <!-- Jquery and Bootstap core js files -->
   <?php include($_SERVER["DOCUMENT_ROOT"] . "/assets/partials/main.end-scripts.php"); ?>
+
+  <script>
+    //lets wait for everything to load before we resize the iframe.
+    $(window).on("load", () => fixFrameHeight());
+
+    //lets also resize the iframe height if the window gets resized, just in case.
+    $(window).on("resize", () => fixFrameHeight());
+
+    const fixFrameHeight = () => {
+      const iFrame = document.getElementById( 'form-holder' );
+      iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
+    }
+  </script>
 </body>
 
 </html>
