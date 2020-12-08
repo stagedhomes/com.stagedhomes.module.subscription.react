@@ -44,7 +44,8 @@ function myForm( {
       },{}),
 
     handleSubmit: (values, { setSubmitting }) => {
-      alert(JSON.stringify(values, null, 2));
+      const myPayload = JSON.stringify(values, null, 2);
+      console.table(myPayload);
       setSubmitting(false);
     },
 

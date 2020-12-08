@@ -139,7 +139,6 @@ const initialValues = {
 function SubscriptionsForm() {
   return (
     <>
-      <h1>Annual Subscription</h1>
       <FormFormik validate={validate} initialValues={initialValues} />
     </>
   );

@@ -106,7 +106,7 @@ export default function SubscriptionsForm(
               className="form-control"
               type="tel"
               inputMode="numeric"
-              pattern="[0-9\s]{13,19}"
+              pattern="[0-9\s]{3,4}"
               required
               onChange={handleChange}
               onBlur={handleBlur}
