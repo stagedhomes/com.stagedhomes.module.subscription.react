@@ -15,3 +15,12 @@ label {
   font-weight: bold;
   text-transform: uppercase;
 }
+
+/* ensure that spans keep their height, even
+ * if no error text.  this is so that the form
+ * doesn't change height while we are filling it out
+ * so that the iframe height doesn't need to be changed.
+ * */
+.error-text:empty:before {
+  content: "\200b"; /* unicode zero width space character */
+}
