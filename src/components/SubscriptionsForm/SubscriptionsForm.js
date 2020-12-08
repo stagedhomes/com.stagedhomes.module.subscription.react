@@ -14,15 +14,59 @@ const ccNumValidation = (ccnum) => {
 
   //check for CC, found regex here:
   //https://stackoverflow.com/questions/9315647/regex-credit-card-number-tests
-  if (/^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/.test(ccnum)) {
-    return 'Numbers characters.';
+  //if (/^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/.test(ccnum)) {
+    //return 'Numbers characters.';
+  //}
+
+  //check for numbers only
+  const regex = /^[0-9]+$/;
+  //if (regex.test(cvvNum)) {
+  if (!ccnum.match(regex)) {
+    return 'Please enter numeric characters only';
   }
 
   //check that it is at 3 length
   if (ccnum.trim().length < 13) {
-    return `Credit card number needs to be at least 13 characters`;
+    return `Credit card number needs to be at least 13 digits long`;
   }
 } //ccNumValidation
+
+/* ****************************************
+ * Validation for Credit Card Security Code (CVV)
+ **************************************** */
+const ccCvvValidation = (cvvNum) => {
+  //check that it is not blank
+  if (cvvNum.trim() === '') {
+    return `CVV is required`;
+  }
+
+  //check for numbers only
+  const regex = /^[0-9]+$/;
+  //if (regex.test(cvvNum)) {
+  if (!cvvNum.match(regex)) {
+    return 'Please enter numeric characters only';
+  }
+
+  //check that it is at 3 length
+  if (cvvNum.trim().length < 3) {
+    return `CVV needs to be at least 3 digits long`;
+  }
+
+  //check that it is at 3 length
+  if (cvvNum.trim().length > 4) {
+    return `CVV can not be more than 4 digits long`;
+  }
+} //ccNumValidation
+
+/* ****************************************
+ * Generic Not Empty Verification
+ **************************************** */
+const notEmpty = (fieldName, fieldVal) => {
+  //check that it is not blank
+  if (fieldVal.trim() === '') {
+    return `${fieldName} is required`;
+  }
+} //notEmpty
 
 /* ****************************************
  * Validation for Name
@@ -40,7 +84,7 @@ const nameValidation = (fieldName, fieldValue) => {
 
   //check that it is at 3 length
   if (fieldValue.trim().length < 3) {
-    return `${fieldName} needs to be at least 3 characters`;
+    return `${fieldName} needs to be at least 2 characters`;
   }
 } //nameValidation
 
@@ -67,14 +111,28 @@ const emailValidation = (email) => {
  **************************************** */
 const validate = {
   ccNum: ccNumValidation,
-  firstName: (name) => nameValidation('First Name', name),
-  lastName: (name) => nameValidation('Last Name', name),
-  ccEmail: (email) => emailValidation(email)
+  ccCVV: ccCvvValidation,
+  ccFirstName: (name) => nameValidation('First Name', name),
+  ccLastName: (name) => nameValidation('Last Name', name),
+  ccEmail: (email) => emailValidation(email),
+  ccAddress: (fieldValue) => notEmpty('Address', fieldValue),
+  ccCity: (fieldValue) => notEmpty('City', fieldValue),
+  ccState: (fieldValue) => notEmpty('State', fieldValue),
+  ccZip: (fieldValue) => notEmpty('Zip', fieldValue),
+  ccCountry: (fieldValue) => notEmpty('Country', fieldValue)
 }
 
 const initialValues = {
   ccNum: '',
-  ccEmail: ''
+  ccCVV: '',
+  ccFirstName: '',
+  ccLastName: '',
+  ccEmail: '',
+  ccAddress: '',
+  ccCity: '',
+  ccState: '',
+  ccZip: '',
+  ccCountry: ''
 }
 
 

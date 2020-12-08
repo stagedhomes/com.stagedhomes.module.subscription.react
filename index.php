@@ -71,7 +71,13 @@
 
   <script>
     //lets wait for everything to load before we resize the iframe.
-    $(window).on("load", () => fixFrameHeight());
+    $(window).on("load", () => {
+      //on one of my loads, i noticed that the resize happened before
+      //the page loaded completely, and it caused the iframe to still have
+      //a slight scroll bar.  So, i'll introduce a bit more of a wait
+      //before the resize happens...
+      setTimeout(() => { fixFrameHeight(); }, 300);
+    });
 
     //lets also resize the iframe height if the window gets resized, just in case.
     $(window).on("resize", () => fixFrameHeight());
